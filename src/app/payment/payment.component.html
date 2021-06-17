@@ -1,36 +1,38 @@
-<h2>아임포트 결제 테스트</h2>
+<div class="wrapper">
+  <h1>아임포트 결제 테스트</h1>
 
-<form [formGroup]="paymentForm" class="paymentForm" (ngSubmit)="onSubmit()" ngNativeValidate>
-  <div class="form-group">
-    <label for="pg">PG사</label>
-    <select
-      formControlName="pgSelect"
-      id="pg"
-      (change)="onChangePg(selectedPg.value)"
-      #selectedPg
-      required
-    >
-      <option *ngFor="let pg of PgOption" [value]="pg.value">
-        {{ pg.label }}
-      </option>
-    </select>
-    <br />
-    <label for="method">결제수단</label>
-    <select
-      formControlName="methodSelect"
-      id="method"
-      (change)="onChangeMethod(selectedMethod.value)"
-      #selectedMethod
-      required
-    >
-      <option *ngFor="let method of MethodOption" [value]="method.value">
-        {{ method.label }}
-      </option>
-    </select>
-
+  <form [formGroup]="paymentForm" class="payment-form" (ngSubmit)="onSubmit()" ngNativeValidate>
+    <div>
+      <label for="pg">PG사</label>
+      <select
+          formControlName="pg"
+          id="pg"
+          (change)="onChangePg(selectedPg.value)"
+          #selectedPg
+          required
+      >
+        <option *ngFor="let pg of PgOption" [value]="pg.value">
+          {{ pg.label }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label for="method">결제수단</label>
+      <select
+          formControlName="pay_method"
+          id="method"
+          (change)="onChangeMethod(selectedMethod.value)"
+          #selectedMethod
+          required
+      >
+        <option *ngFor="let method of MethodOption" [value]="method.value">
+          {{ method.label }}
+        </option>
+      </select>
+    </div>
     <div *ngIf="isQuotaRequired">
       <label for="quotas">할부개월수</label>
-      <select formControlName="quotaSelect" id="quotas">
+      <select formControlName="card_quota" id="quotas">
         <option *ngFor="let quota of QuotaOption" [value]="quota.value">
           {{ quota.label }}
         </option>
@@ -38,46 +40,45 @@
     </div>
     <div *ngIf="isVbankDueRequired">
       <label for="vbankDue">입금기한</label>
-      <input formControlName="vbankDueInput" id="vbankDue" type="number" placeholder="YYYYMMDDhhmm"/>
+      <input formControlName="vbank_due" id="vbankDue" type="number" placeholder="YYYYMMDDhhmm"/>
     </div>
     <div *ngIf="isBizNumRequired">
-        <label for="bizNum">사업자번호</label>
-        <input formControlName="bizNumInput" id="bizNum" type="number"/>
+      <label for="bizNum">사업자번호</label>
+      <input formControlName="biz_num" id="bizNum" type="number"/>
     </div>
     <div *ngIf="isDigitalRequired">
-        <label for="digital">실물여부</label>
-        <mat-slide-toggle formControlName="digitalSwitch" id="digital"></mat-slide-toggle> 
+      <label for="digital">실물여부</label>
+      <mat-slide-toggle formControlName="digital" id="digital"></mat-slide-toggle>
     </div>
     <div>
-        <label for="escrow">에스크로</label>
-        <mat-slide-toggle formControlName="escrowSwitch" id="escrow"></mat-slide-toggle> 
+      <label for="escrow">에스크로</label>
+      <mat-slide-toggle formControlName="escrow" id="escrow"></mat-slide-toggle>
     </div>
     <div>
-        <label for="name">주문명</label>
-        <input formControlName="nameInput" id="name"/>
+      <label for="name">주문명</label>
+      <input matInput formControlName="name" id="name"/>
     </div>
     <div>
-        <label for="amount">결제금액</label>
-        <input formControlName="amountInput" id="amount"/>
+      <label for="amount">결제금액</label>
+      <input matInput formControlName="amount" id="amount"/>
     </div>
     <div>
-        <label for="merchantUid">주문번호</label>
-        <input formControlName="merchantUidInput" id="merchantUid"/>
+      <label for="merchantUid">주문번호</label>
+      <input matInput formControlName="merchant_uid" id="merchantUid"/>
     </div>
     <div>
-        <label for="buyerName">이름</label>
-        <input formControlName="buyerNameInput" id="buyerName"/>
+      <label for="buyerName">이름</label>
+      <input matInput formControlName="buyer_name" id="buyerName"/>
     </div>
     <div>
-        <label for="buyerTel">전화번호</label>
-        <input formControlName="buyerTelInput" id="buyerTel"/>
+      <label for="buyerTel">전화번호</label>
+      <input matInput formControlName="buyer_tel" id="buyerTel"/>
     </div>
     <div>
-        <label for="buyerEmail">이메일</label>
-        <input formControlName="buyerEmailInput" id="buyerEmail"/>
+      <label for="buyerEmail">이메일</label>
+      <input matInput formControlName="buyer_email" id="buyerEmail"/>
     </div>
-
     <br/>
-    <button class="button" type="submit">결제하기</button>
-  </div>
-</form>
+    <button mat-raised-button type="submit">결제하기</button>
+  </form>
+</div>
