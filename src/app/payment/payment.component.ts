@@ -7,7 +7,7 @@ import * as queryString from 'query-string';
 
 @Component({
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.scss'],
+  styleUrls: ['./payment.component.scss', '../styles/common.form.scss'],
 })
 export class PaymentComponent implements OnInit {
   router: Router;
@@ -90,7 +90,6 @@ export class PaymentComponent implements OnInit {
     /* 가맹점 식별코드 */
     const userCode = 'imp19424728';
     const formValues = this.paymentForm.getRawValue();
-    console.log(formValues);
     const {
       pg,
       pay_method,
@@ -139,6 +138,8 @@ export class PaymentComponent implements OnInit {
       requestData.digital = digital;
     }
 
+    console.log(requestData);
+
     // @ts-ignore
     const {IMP} = window;
     IMP.init(userCode);
@@ -146,8 +147,6 @@ export class PaymentComponent implements OnInit {
       console.log(response);
       this.router.navigateByUrl(`/payment/result?${queryString.stringify(response)}`);
     });
-
-    console.log(getMethods(PGS[0].value)[0].label);
   }
 
   handleQuotas(pgVal: string, methodVal: string): void {

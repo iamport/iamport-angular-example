@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {PaymentResultComponent} from './payment-result/payment-result.component';
+import {CertificationResultComponent} from './certification-result/certification-result.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {PaymentResultComponent} from './payment-result/payment-result.component'
     PaymentComponent,
     CertificationComponent,
     HomeComponent,
-    PaymentResultComponent
+    PaymentResultComponent,
+    CertificationResultComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import {PaymentResultComponent} from './payment-result/payment-result.component'
       {path: 'payment', component: PaymentComponent},
       {path: 'payment/result', component: PaymentResultComponent},
       {path: 'certification', component: CertificationComponent},
+      {path: 'certification/result', component: CertificationResultComponent},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
     ]),
     BrowserAnimationsModule,

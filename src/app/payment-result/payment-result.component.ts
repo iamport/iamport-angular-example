@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import * as queryString from 'query-string';
-import {checkTrue} from './utils';
+import {checkTrue} from '../utils/common.result';
 
 @Component({
   selector: 'app-payment-result',
   templateUrl: './payment-result.component.html',
-  styleUrls: ['./payment-result.component.scss']
+  styleUrls: ['./payment-result.component.scss', '../styles/common.result.scss']
 })
 export class PaymentResultComponent implements OnInit {
   location: Location;
