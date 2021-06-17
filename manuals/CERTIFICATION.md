@@ -93,6 +93,7 @@ export class Certification {
             alert(`본인인증 실패: ${error_msg}`);
         }
     }
+}
 ```
 
 ```angular2html
