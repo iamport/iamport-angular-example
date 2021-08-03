@@ -1,1 +1,36 @@
-<h2>아임포트 본인인증 테스트</h2>
+<div class="wrapper">
+  <h1>아임포트 본인인증 테스트</h1>
+
+  <form [formGroup]="certificationForm" class="form-group" (ngSubmit)="onSubmit()" ngNativeValidate>
+    <div>
+      <label for="merchantUid">주문번호</label>
+      <input
+          formControlName="merchant_uid"
+          id="merchantUid"
+          required
+      />
+    </div>
+    <div>
+      <label for="name">이름</label>
+      <input formControlName="name" id="name"/>
+    </div>
+    <div>
+      <label for="phone">전화번호</label>
+      <input
+          formControlName="phone"
+          id="phone"
+      />
+    </div>
+    <div>
+      <label for="min_age">최소연령</label>
+      <input
+          formControlName="min_age"
+          id="min_age"
+          placeholder="허용 최소 만 나이"
+          type="number"
+      />
+    </div>
+    <br/>
+    <button mat-raised-button type="submit">본인인증하기</button>
+  </form>
+</div>

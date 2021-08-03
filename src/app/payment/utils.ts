@@ -12,11 +12,14 @@ import {
   QUOTAS_FOR_INICIS_AND_KCP,
 } from './constants';
 
-export function getMethods(pg: string): {label: string, value: string}[] {
+export function getMethods(pg: string): { label: string, value: string }[] {
   switch (pg) {
-    case 'html5_inicis': return METHODS_FOR_INICIS;
-    case 'kcp': return METHODS_FOR_KCP;
-    case 'uplus': return METHODS_FOR_UPLUS;
+    case 'html5_inicis':
+      return METHODS_FOR_INICIS;
+    case 'kcp':
+      return METHODS_FOR_KCP;
+    case 'uplus':
+      return METHODS_FOR_UPLUS;
     case 'kcp_billing':
     case 'kakaopay':
     case 'kakao':
@@ -31,19 +34,20 @@ export function getMethods(pg: string): {label: string, value: string}[] {
       return METHODS_FOR_MOBILIANS;
     case 'settle':
       return METHOD_FOR_VBANK;
-    default: return METHODS;
-  }  
-} 
+    default:
+      return METHODS;
+  }
+}
 
 export function getQuotas(pg: string, method: string) {
   if (method === 'card') {
     switch (pg) {
       case 'html5_inicis':
       case 'kcp':
-        return { isQuotaRequired: true, quotas: QUOTAS_FOR_INICIS_AND_KCP };
+        return {isQuotaRequired: true, quotas: QUOTAS_FOR_INICIS_AND_KCP};
       default:
-        return { isQuotaRequired: true, quotas: QUOTAS };
+        return {isQuotaRequired: true, quotas: QUOTAS};
     }
   }
-  return { isQuotaRequired: false, quotas: QUOTAS };
+  return {isQuotaRequired: false, quotas: QUOTAS};
 }

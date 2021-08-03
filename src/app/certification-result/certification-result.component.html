@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="container {{ resultData.isSuccess ? 'success' : 'fail' }}">
+    <mat-icon>{{ resultData.isSuccess ? 'check_circle_outline' : 'error' }}</mat-icon>
+    <p>
+      본인인증에 {{ resultData.isSuccess ? '성공' : '실패' }}하였습니다.
+    </p>
+    <ul>
+      <li>
+        <span>주문번호</span>
+        <span>{{ resultData.merchantUid }}</span>
+      </li>
+      <li *ngIf="resultData.isSuccess">
+        <span>아임포트 번호</span>
+        <span>{{ resultData.impUid }}</span>
+      </li>
+      <li *ngIf="!resultData.isSuccess">
+        <span>에러 메시지</span>
+        <span>{{ resultData.errorMsg }}</span>
+      </li>
+    </ul>
+    <button mat-raised-button routerLink="/">
+      돌아가기
+    </button>
+  </div>
+</div>

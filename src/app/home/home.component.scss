@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  > div {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .titles {
+    background-color: #344e81;
+    top: 0;
+    bottom: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    > * {
+      color: #fff;
+    }
+
+    h4 {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    > div:nth-child(2) {
+      top: 50%;
+      bottom: 0;
+    }
+  }
+
+  .buttons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    margin-top: -5rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 10rem;
+      width: 15rem;
+      margin: 0 0.5rem;
+    }
+  }
+}
